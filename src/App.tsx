@@ -1,10 +1,12 @@
-import NavBar from "./layouts/NavBar";
+import CallToAction from "./layouts/CTA";
+import Popular from "./layouts/Popular";
 
 function App() {
   return (
-    <div className="container mx-auto px-5 py-4">
-      <NavBar />
-    </div>
+    <section className="">
+      <CallToAction />
+      <Popular />
+    </section>
   );
 }
 
