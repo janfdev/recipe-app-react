@@ -1,25 +1,25 @@
 import NavBar from "./NavBar";
-import React, { useState, useEffect } from "react";
-import { Recipe, fetchRecipes } from "@/lib/api";
+import React, { useState } from "react";
 
-const CallToAction: React.FC = () => {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [query, setQuery] = useState("chicken");
+interface CTAProps {
+  setQuery: (query: string) => void;
+  setSearched: (searched: boolean) => void;
+}
 
-  useEffect(() => {
-    const getRecipes = async () => {
-      const data = await fetchRecipes(query);
-      setRecipes(data);
-    };
+const CallToAction: React.FC<CTAProps> = ({ setQuery, setSearched }) => {
+  const [input, setInput] = useState("");
 
-    getRecipes();
-  }, [query]);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setQuery(input);
+    setSearched(true);
+  };
 
   return (
-    <div className="rounded-b-xl h-screen">
+    <div className="rounded-b-xl">
       <NavBar />
-      <section>
-        <div className="p-8 md:p-12 lg:px-16 lg:py-36">
+      <section className="flex items-center justify-center">
+        <div className="md:mt-24 mt-10">
           <div className="mx-auto max-w-lg text-center">
             <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
               Resep Lezat dan Mudah untuk Setiap Hari
@@ -31,12 +31,7 @@ const CallToAction: React.FC = () => {
           </div>
 
           <div className="mx-auto mt-8 max-w-xl">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault(); // Mencegah reload halaman
-              }}
-              className="sm:flex sm:gap-4"
-            >
+            <form onSubmit={handleSubmit} className="sm:flex sm:gap-4">
               <div className="sm:flex-1">
                 <label htmlFor="recipe" className="sr-only">
                   Search Recipe
@@ -44,8 +39,8 @@ const CallToAction: React.FC = () => {
                 <input
                   id="recipe"
                   type="text"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
                   placeholder="Search for the recipe you want"
                   className="w-full rounded-md border-2 border-gray-200 bg-white p-3 text-gray-700 shadow-xs transition focus:border-white focus:ring-3 focus:ring-blue-400"
                 />
@@ -72,22 +67,6 @@ const CallToAction: React.FC = () => {
                 </svg>
               </button>
             </form>
-
-            <ul>
-              {recipes.map((recipe) => (
-                <li key={recipe.idMeal}>
-                  <h3>{recipe.strMeal}</h3>
-                  <p>
-                    {recipe.strCategory} | {recipe.strArea}
-                  </p>
-                  <img
-                    src={recipe.strMealThumb}
-                    alt={recipe.strMeal}
-                    width={150}
-                  />
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
