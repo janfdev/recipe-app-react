@@ -6,23 +6,28 @@ import { fetchRecipes, Recipe } from "./lib/api";
 const App: React.FC = () => {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!searched || query.trim() === "") return;
 
     const getRecipes = async () => {
+      setIsLoading(true);
       const data = await fetchRecipes(query);
       setRecipes(data);
+      setIsLoading(false);
     };
-
     getRecipes();
   }, [query, searched]);
   return (
     <section>
       <CallToAction setQuery={setQuery} setSearched={setSearched} />
-      <ResultRecipe recipes={recipes} searched={searched} />
+      <ResultRecipe
+        recipes={recipes}
+        searched={searched}
+        isLoading={isLoading}
+      />
     </section>
   );
 };

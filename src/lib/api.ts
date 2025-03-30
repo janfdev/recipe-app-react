@@ -7,6 +7,7 @@ export interface Recipe {
   strArea: string;
   strInstructions: string;
   strMealThumb: string;
+  strTags: string;
 }
 
 export const fetchRecipes = async (query: string): Promise<Recipe[]> => {

@@ -18,7 +18,7 @@ const CallToAction: React.FC<CTAProps> = ({ setQuery, setSearched }) => {
   return (
     <div className="rounded-b-xl">
       <NavBar />
-      <section className="flex items-center justify-center">
+      <section className="flex items-center justify-center md:px-0 px-10">
         <div className="md:mt-24 mt-10">
           <div className="mx-auto max-w-lg text-center">
             <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
