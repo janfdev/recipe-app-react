@@ -29,12 +29,12 @@ const ResultRecipe: React.FC<RecipesProps> = ({
         </div>
       )}
 
-      {isLoading && searched && recipes.length === 0 && (
-        <p className="text-gray-500 mt-3">Resep tidak ditemukan.</p>
+      {!isLoading && searched && recipes.length === 0 && (
+        <p className="text-gray-500 mt-3">Recipe not found.</p>
       )}
 
-      {isLoading && searched && recipes.length > 0 && (
-        <ul className="grid md:grid-cols-3 grid-cols-1 gap-10 px-5 mt-5">
+      {!isLoading && searched && recipes.length > 0 && (
+        <ul className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 px-5 mt-5">
           {recipes.map((recipe) => {
             const tagMeals = recipe.strTags ? recipe.strTags.split(",") : [];
             return (

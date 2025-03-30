@@ -12,7 +12,8 @@ const CallToAction: React.FC<CTAProps> = ({ setQuery, setSearched }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setQuery(input);
-    setSearched(true);
+    setSearched(false);
+    setTimeout(() => setSearched(true), 100);
   };
 
   return (

@@ -13,9 +13,12 @@ const App: React.FC = () => {
     if (!searched || query.trim() === "") return;
 
     const getRecipes = async () => {
-      setIsLoading(true);
-      const data = await fetchRecipes(query);
-      setRecipes(data);
+      try {
+        const data = await fetchRecipes(query);
+        setRecipes(data);
+      } catch (error) {
+        console.error("Failed to fetch recipes", error);
+      }
       setIsLoading(false);
     };
     getRecipes();
