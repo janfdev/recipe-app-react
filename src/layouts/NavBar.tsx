@@ -21,13 +21,6 @@ const NavBar = () => {
             className="text-lg text-blue-500
         "
           >
-            Popular
-          </Button>
-          <Button
-            variant={"link"}
-            className="text-lg text-blue-500
-        "
-          >
             Categories
           </Button>
         </ul>
