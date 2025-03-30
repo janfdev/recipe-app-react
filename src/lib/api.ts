@@ -1,6 +1,6 @@
-const API_URL = process.env.IMDB_API_KEY_BY_NAME;
+const API_URL = process.env.VITE_API_URL;
 
-interface Recipe {
+export interface Recipe {
   idMeal: string;
   strMeal: string;
   strCategory: string;

@@ -1,6 +1,4 @@
-import React from "react";
-
-const Popular = () => {
+const Recipe = () => {
   return (
     <div
       className="h-screen container mx-auto flex justify-center"
@@ -11,4 +9,4 @@ const Popular = () => {
   );
 };
 
-export default Popular;
+export default Recipe;
