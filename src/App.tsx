@@ -1,5 +1,5 @@
 import CallToAction from "./layouts/CTA";
-import Popular from "./layouts/Popular";
+import Popular from "./layouts/Recipes";
 
 function App() {
   return (

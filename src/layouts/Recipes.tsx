@@ -6,7 +6,7 @@ const Popular = () => {
       className="h-screen container mx-auto flex justify-center"
       id="categories"
     >
-      <h1 className="text-2xl font-semibold">Categories </h1>
+      <h1 className="text-2xl font-semibold">Recipes</h1>
     </div>
   );
 };

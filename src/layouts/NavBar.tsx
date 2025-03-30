@@ -11,14 +11,14 @@ const NavBar = () => {
         <ul className="flex items-center gap-3">
           <Button
             variant={"link"}
-            className="text-lg text-blue-500
+            className="text-lg 
         "
           >
             Home
           </Button>
           <Button
             variant={"link"}
-            className="text-lg text-blue-500
+            className="text-lg 
         "
           >
             Categories
