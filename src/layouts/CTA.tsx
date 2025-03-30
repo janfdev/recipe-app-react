@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import NavBar from "./NavBar";
 import React, { useState } from "react";
 
@@ -47,9 +48,10 @@ const CallToAction: React.FC<CTAProps> = ({ setQuery, setSearched }) => {
                 />
               </div>
 
-              <button
+              <Button
                 type="submit"
-                className="group cursor-pointer mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-blue-600 px-5 py-3 text-white transition focus:ring-3 focus:ring-blue-800 sm:mt-0 sm:w-auto"
+                variant={"blue"}
+                className="group cursor-pointer mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-blue-600 px-5 py-6 text-white transition focus:ring-3 focus:ring-blue-800 sm:mt-0 sm:w-auto"
               >
                 <span className="text-sm font-medium">Search Recipe</span>
                 <svg
@@ -66,7 +68,7 @@ const CallToAction: React.FC<CTAProps> = ({ setQuery, setSearched }) => {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </button>
+              </Button>
             </form>
           </div>
         </div>

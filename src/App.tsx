@@ -14,6 +14,7 @@ const App: React.FC = () => {
 
     const getRecipes = async () => {
       try {
+        setIsLoading(true);
         const data = await fetchRecipes(query);
         setRecipes(data);
       } catch (error) {
